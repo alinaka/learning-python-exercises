@@ -39,3 +39,26 @@ Sample Output 3:
 
 3
 """
+
+string = "MCMLXXXIV"
+
+dictionary = {
+    "I": 1,
+    "V": 5,
+    "X": 10,
+    "L": 50,
+    "C": 100,
+    "D": 500,
+    "M": 1000
+}
+curr = result = 0
+reversed_string = list(reversed(string))
+
+while curr < len(string):
+    if curr + 1 < len(string) and dictionary[reversed_string[curr + 1]] < dictionary[reversed_string[curr]]:
+        result += dictionary[reversed_string[curr]] - dictionary[reversed_string[curr + 1]]
+        curr += 1
+    else:
+        result += dictionary[reversed_string[curr]]
+    curr += 1
+print(result)
